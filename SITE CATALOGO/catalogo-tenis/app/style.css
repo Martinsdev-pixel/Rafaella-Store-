@@ -1,0 +1,394 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --nude-claro: #f5e6dc;
+  --nude-hover: #ead3c5;
+  --nude-borda: #e7d3c7;
+  --texto-principal: #3a2f2a;
+  --cinza-suave: #777;
+  --branco: #ffffff;
+}
+
+/* BODY */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #fff;
+  color: var(--texto-principal);
+}
+
+/* HERO */
+.hero {
+  min-height: 90vh;
+  background: linear-gradient(135deg, #fdf3ee, #ffffff);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+}
+
+.hero h1 {
+  font-size: 2.6rem;
+  font-weight: 600;
+}
+
+.hero p {
+  margin-top: 12px;
+  color: var(--cinza-suave);
+}
+
+.btn-hero {
+  margin-top: 25px;
+  padding: 14px 32px;
+  background: var(--nude-hover);
+  color: #000;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn-hero:hover {
+  background: #e4c8b8;
+}
+
+/* SEÇÕES */
+.secao {
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px 20px;
+}
+
+.titulo {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  border-left: 5px solid #d8b4a0;
+  padding-left: 12px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+/* CARD NUDE PREMIUM */
+.product-card {
+  background: var(--nude-claro);
+  border-radius: 20px;
+  border: 1px solid var(--nude-borda);
+  padding: 16px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(150,120,100,0.08);
+}
+
+.product-card:hover {
+  background: var(--nude-hover);
+  transform: translateY(-6px);
+  box-shadow: 0 14px 35px rgba(150,120,100,0.15);
+}
+
+.product-card.active-click {
+  transform: scale(0.96);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.product-card h3 {
+  margin-top: 14px;
+  font-weight: 600;
+}
+
+
+
+/* EFEITO BRILHO */
+.product-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.6), transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.product-card.shine::after {
+  animation: shineEffect 0.6s ease;
+}
+
+@keyframes shineEffect {
+  0% { opacity: 0; transform: translateX(-100%); }
+  50% { opacity: 1; }
+  100% { opacity: 0; transform: translateX(100%); }
+}
+
+/* GALERIA */
+.galeria img {
+  width: 100%;
+  border-radius: 18px;
+  display: none;
+}
+
+.galeria img.ativa {
+  display: block;
+  animation: fadeImg 0.6s ease;
+}
+
+@keyframes fadeImg {
+  from { opacity: 0.6; }
+  to { opacity: 1; }
+}
+
+/* BOTÕES */
+button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  background: #25d366;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #1ebe5d;
+}
+
+/* WHATSAPP FLOAT */
+.whatsapp-float {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  background: #25d366;
+  color: white;
+  font-size: 28px;
+  padding: 16px 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f3f3f3;
+  color: #333;
+  font-size: 22px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.close:hover {
+  background: #e6cbb8;
+  color: #fff;
+  transform: rotate(90deg) scale(1.1);
+}
+
+.close:active {
+  transform: scale(0.9);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
+  z-index: 999;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  position: relative;
+  background: #fff;
+  max-width: 920px;
+  width: 95%;
+  margin: 30px auto;
+  border-radius: 20px;
+  padding: 26px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 30px;
+  animation: fadeUp 0.4s ease;
+}
+
+.modal-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#mainImage {
+  width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+  border-radius: 18px;
+}
+
+.thumbnails {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.thumbnails img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: 0.2s;
+}
+
+.thumbnails img:hover {
+  border-color: #d8b4a0;
+}
+
+@media (max-width: 900px) {
+  .modal-content {
+    grid-template-columns: 1fr;
+    padding: 25px;
+    gap: 25px;
+  }
+}
+/* FOOTER */
+.footer {
+  background: #fff;
+  border-top: 1px solid #eee;
+  margin-top: 80px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 50px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+}
+
+.footer-bottom {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    grid-template-columns: 1fr;
+  }
+
+  #mainImage {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
+
+.social-icons img {
+  width: 100px;
+  height: 100px;
+  padding: 8px;
+  border-radius: 50%;
+  background: #f8bbd0;
+}
+
+.payment-image {
+  max-width: 220px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.product-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+}
+
+.price {
+  color: #b76e79;
+  font-weight: bold;
+  margin-top: 6px;
+}
+
+
+
+
+.modal-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+#mainImage {
+  width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+  border-radius: 14px;
+  background: #f7f7f7;
+  padding: 10px;
+}
+
+/* MINIATURAS */
+.thumbnails {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.thumbnails img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  opacity: 0.6;
+  border: 2px solid transparent;
+  transition: all 0.25s ease;
+}
+
+.thumbnails img:hover {
+  opacity: 1;
+  transform: translateY(-4px);
+}
+
+.thumbnails img.active {
+  opacity: 1;
+  border-color: #d8b4a0;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}

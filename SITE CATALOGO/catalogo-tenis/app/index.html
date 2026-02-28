@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo de Tênis</title>
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<section class="hero">
+   <h1 class="logo">
+  <img src="img/logo.png" alt="Rafaella Store ">
+</h1>
+    <p>Elegância, conforto e atitude em cada passo</p>
+    <a href="#feminino" class="btn-hero">Ver Coleção</a>
+</section>
+
+
+<section class="secao" id="feminino">
+  <h2 class="titulo feminino">Feminino</h2>
+
+  <div class="grid">
+    <div class="product-card" onclick="openModal(1, this)">
+      <img src="img/nike.png">
+      <h3>Tênis Rosa Premium</h3>
+      <p class="price">R$ 189,90</p>
+    </div>
+
+    <div class="product-card"onclick="openModal(2, this)">
+      <img src="img/tenis2/capa.jpg">
+      <h3>Tênis Branco Clean</h3>
+      <p class="price">R$ 279,90</p>
+    </div>
+
+    <div class="product-card" onclick="openModal(3, this)">
+      <img src="img/tenis3/capa.jpg">
+      <h3>Tênis Nude Fashion</h3>
+      <p class="price">R$ 239,90</p>
+    </div>
+
+    <div class="product-card" onclick="openModal(4, this)">
+      <img src="img/tenis4/capa.jpg">
+      <h3>Tênis Casual Rosé</h3>
+      <p class="price">R$ 219,90</p>
+    </div>
+
+    <div class="product-card" onclick="openModal(5, this)">
+      <img src="img/tenis5/capa.jpg">
+      <h3>Tênis Branco Premium</h3>
+      <p class="price">R$ 299,90</p>
+    </div>
+
+    <div class="product-card" onclick="openModal(6, this)">
+      <img src="img/tenis6/capa.jpg">
+      <h3>Tênis Minimal Chic</h3>
+      <p class="price">R$ 259,90</p>
+    </div>
+  </div>
+</section>
+
+<section class="secao" id="masculino">
+  <h2 class="titulo masculino">Masculino</h2>
+
+  <div class="grid">
+    <div class="product-card" onclick="openModal(7, this)">
+      <img src="img/tenis7/capa.jpg">
+      <h3>Tênis Preto Street</h3>
+      <p class="price">R$ 299,90</p>
+    </div>
+
+    <div class="product-card" onclick="openModal(8, this)">
+      <img src="img/tenis8/capa.jpg">
+      <h3>Tênis Branco Urbano</h3>
+      <p class="price">R$ 279,90</p>
+    </div>
+
+    <div class="product-card" onclick="openModal(9, this)">
+      <img src="img/tenis9/capa.jpg">
+      <h3>Tênis Esportivo Black</h3>
+      <p class="price">R$ 319,90</p>
+    </div>
+
+    <div class="product-card" onclick="openModal(10, this)">
+      <img src="img/tenis10/capa.jpg">
+      <h3>Tênis Casual Marrom</h3>
+      <p class="price">R$ 289,90</p>
+    </div>
+
+    <div class="product-card" onclick="openModal(11, this)">
+      <img src="img/tenis11/capa.jpg">
+      <h3>Tênis Cinza Modern</h3>
+      <p class="price">R$ 269,90</p>
+    </div>
+
+    <div class="product-card" onclick="openModal(12, this)">
+      <img src="img/tenis12/capa.jpg">
+      <h3>Tênis Branco Premium</h3>
+      <p class="price">R$ 329,90</p>
+    </div>
+  </div>
+</section>
+
+
+
+<script src="script.js"></script>
+
+<footer class="footer">
+  <div class="footer-container">
+
+
+    <div class="footer-column">
+      <h4>Atendimento</h4>
+      <p>Seg. à Sex.: 08:00 às 20:00</p>
+      <p>Sáb.: 08:00 às 16:00</p>
+      <p>📞 (42) 99995-6385</p>
+      
+    </div>
+
+    
+
+
+ <div class="footer-column">
+  <h4>Formas de pagamentos</h4>
+
+  <img 
+    src="CARTAO.png" 
+    alt="Formas de pagamento" 
+    class="payment-image"
+  >
+</div>
+
+    
+    <div class="footer-column">
+      <h4>Onde nos encontrar</h4>
+      <div class="social-icons">
+        <a href="https://wa.me/5542999956385" target="_blank">
+          <img src="whats.png" alt="WhatsApp">
+        </a>
+        <a href="https://instagram.com/rafaella_storepg" target="_blank">
+          <img src="instagram.png" alt="Instagram">
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Rafaella Store PG
+  </div>
+</footer>
+
+<div class="modal" id="productModal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">×</span>
+
+
+    <div class="modal-gallery">
+      <img id="mainImage" src="" alt="Imagem do produto">
+      <div class="thumbnails" id="thumbnails"></div>
+    </div>
+
+  
+    <div class="modal-info">
+      <h2 id="productName"></h2>
+      <p class="price" id="productPrice"></p>
+
+      <select id="sizeSelect">
+        <option value="">Selecione o número</option>
+        <option>34</option>
+        <option>35</option>
+        <option>36</option>
+        <option>37</option>
+        <option>38</option>
+        <option>39</option>
+        <option>40</option>
+        <option>41</option>
+        <option>42</option>
+      </select>
+
+      <button onclick="buyWhatsApp()">Comprar pelo WhatsApp</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
